@@ -1,19 +1,20 @@
+import random
+
 print('***********************************')
 print("Bem vindo ao jogo de adivinhação")
 print('***********************************')
 
-numero_secreto = 42
+numero_secreto = int
 total_de_tentativas = 3
-tentativa_atual = total_de_tentativas
-rodada = 0
 
-while tentativa_atual > 0:
-    rodada += 1
-    print('Tentativa:', rodada, 'de', total_de_tentativas)
-    chute = int(input('Digite um número: '))
+for rodada in range(1, total_de_tentativas + 1):
+    print('Tentativa: {} de {}'.format(rodada, total_de_tentativas))
+    chute = int(input('Digite um número entre 1 e 100: '))
     print('Você digitou', chute)
 
-    tentativa_atual -= 1
+    if chute < 1 or chute > 100:
+        print('[ERRO] Você deve digitar um número entre 1 e 100!')
+        continue
 
     acertou = chute == numero_secreto
     maior = chute > numero_secreto
@@ -31,4 +32,5 @@ while tentativa_atual > 0:
 print('')
 print('-------------')
 print('Fim de jogo')
+print(f'O número era {numero_secreto}')
 print('-------------')
