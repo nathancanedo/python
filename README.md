@@ -1,2 +1,2 @@
-# python
- Meus estudos de Python
+# Python
+ Meus estudos de **Python** 🐍
