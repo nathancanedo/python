@@ -3,6 +3,7 @@ import random
 print('***********************************')
 print("Bem vindo ao jogo de adivinhação")
 print('***********************************')
+
 print('')
 dificuldade = input('Selecione a dificuldade: \n Fácil (1) Médio (2) Difícil (3) \n')
 print('')
@@ -15,13 +16,18 @@ elif dificuldade == '2':
     total_de_tentativas = 5
 elif dificuldade == '3':
     total_de_tentativas = 3
+else:
+    print('[ERRO] Você não digitou uma dificuldade válida!')
+    exit()
 
 numero_secreto = int(random.random()*101)
 
 for rodada in range(1, total_de_tentativas + 1):
+    print('')
     print('Tentativa: {} de {}'.format(rodada, total_de_tentativas))
     chute = int(input('Digite um número entre 1 e 100: '))
     print('Você digitou', chute)
+    print('')
 
     if chute < 1 or chute > 100:
         print('[ERRO] Você deve digitar um número entre 1 e 100!')
