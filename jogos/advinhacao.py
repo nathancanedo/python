@@ -10,20 +10,17 @@ print('')
 
 nome_dificuldade = ''
 total_de_tentativas = 0
-pontos = 0
+pontos = 1000
 
 if dificuldade == 1:
     total_de_tentativas = 10
     nome_dificuldade = 'Fácil'
-    pontos = 1100
 elif dificuldade == 2:
     total_de_tentativas = 8
     nome_dificuldade = 'Médio'
-    pontos = 1500
 elif dificuldade == 3:
     total_de_tentativas = 5
     nome_dificuldade = 'Difícil'
-    pontos = 2000
 else:
     print('[ERRO] Você não digitou uma dificuldade válida!')
     exit()
@@ -59,7 +56,7 @@ for rodada in range(1, total_de_tentativas + 1):
         break
     else:
         erros -= 1
-        pontos -= 100
+        pontos -= chute
         if maior:
             print(f'Você errou! O número secreto é MENOR que {chute}!')
         elif menor:
