@@ -56,7 +56,9 @@ for rodada in range(1, total_de_tentativas + 1):
         break
     else:
         erros -= 1
-        pontos -= chute
+        pontos_perdidos = abs(numero_secreto - chute)
+        pontos -= numero_secreto
+
         if maior:
             print(f'Você errou! O número secreto é MENOR que {chute}!')
         elif menor:
