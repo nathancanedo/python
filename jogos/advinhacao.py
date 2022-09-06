@@ -5,27 +5,31 @@ print("Bem vindo ao jogo de adivinhação")
 print('***********************************')
 
 print('')
-dificuldade = input('Selecione a dificuldade: \n Fácil (1) Médio (2) Difícil (3) \n')
+dificuldade = int(input('Selecione a dificuldade: \n Fácil (1) Médio (2) Difícil (3) \n'))
 print('')
 
 nome_dificuldade = ''
-total_de_tentativas = ''
+total_de_tentativas = 0
+pontos = 0
 
-if dificuldade == '1':
+if dificuldade == 1:
     total_de_tentativas = 10
     nome_dificuldade = 'Fácil'
-elif dificuldade == '2':
-    total_de_tentativas = 5
+    pontos = 1100
+elif dificuldade == 2:
+    total_de_tentativas = 8
     nome_dificuldade = 'Médio'
-elif dificuldade == '3':
-    total_de_tentativas = 3
+    pontos = 1500
+elif dificuldade == 3:
+    total_de_tentativas = 5
     nome_dificuldade = 'Difícil'
+    pontos = 2000
 else:
     print('[ERRO] Você não digitou uma dificuldade válida!')
     exit()
 
 erros = total_de_tentativas
-numero_secreto = int(random.random()*101)
+numero_secreto = random.randrange(1, 101)
 
 print('O jogo começou! 🏁')
 print(f'Você está jogando no modo {nome_dificuldade.upper()}')
@@ -49,11 +53,13 @@ for rodada in range(1, total_de_tentativas + 1):
         print('')
         print('🏆🏆🏆🏆🏆🏆🏆')
         print('Você acertou!')
+        print(f'Você fez {pontos} pontos!')
         print('🏆🏆🏆🏆🏆🏆🏆')
 
         break
     else:
         erros -= 1
+        pontos -= 100
         if maior:
             print(f'Você errou! O número secreto é MENOR que {chute}!')
         elif menor:
