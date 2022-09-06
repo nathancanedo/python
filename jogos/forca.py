@@ -7,3 +7,7 @@ def jogar():
     print('-------------')
     print('Fim de jogo')
     print('-------------')
+
+
+if __name__ == '__main__':
+    jogar()

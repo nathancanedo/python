@@ -1,7 +1,7 @@
 import random
 
-def jogar():
 
+def jogar():
     print('***********************************')
     print("Bem vindo ao jogo de adivinhação")
     print('***********************************')
@@ -42,6 +42,7 @@ def jogar():
 
         if chute < 1 or chute > 100:
             print('[ERRO] Você deve digitar um número entre 1 e 100!')
+            erros -= 1
             continue
 
         acertou = chute == numero_secreto
@@ -59,7 +60,7 @@ def jogar():
         else:
             erros -= 1
             pontos_perdidos = abs(numero_secreto - chute)
-            pontos -= numero_secreto
+            pontos -= pontos_perdidos
 
             if maior:
                 print(f'Você errou! O número secreto é MENOR que {chute}!')
@@ -77,3 +78,7 @@ def jogar():
     print('Fim de jogo')
     print(f'O número secreto era {numero_secreto}')
     print('-------------')
+
+
+if __name__ == '__main__':
+    jogar()
