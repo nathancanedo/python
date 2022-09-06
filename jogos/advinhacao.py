@@ -3,9 +3,20 @@ import random
 print('***********************************')
 print("Bem vindo ao jogo de adivinhação")
 print('***********************************')
+print('')
+dificuldade = input('Selecione a dificuldade: \n Fácil (1) Médio (2) Difícil (3) \n')
+print('')
 
-numero_secreto = int
-total_de_tentativas = 3
+total_de_tentativas = int()
+
+if dificuldade == '1':
+    total_de_tentativas = 10
+elif dificuldade == '2':
+    total_de_tentativas = 5
+elif dificuldade == '3':
+    total_de_tentativas = 3
+
+numero_secreto = int(random.random()*101)
 
 for rodada in range(1, total_de_tentativas + 1):
     print('Tentativa: {} de {}'.format(rodada, total_de_tentativas))
@@ -21,16 +32,20 @@ for rodada in range(1, total_de_tentativas + 1):
     menor = chute < numero_secreto
 
     if acertou:
+        print('')
+        print('🏆🏆🏆🏆🏆🏆🏆')
         print('Você acertou!')
+        print('🏆🏆🏆🏆🏆🏆🏆')
+
         break
     else:
         if maior:
-            print('Você errou! Seu chute foi MAIOR que o número secreto!')
+            print(f'Você errou! O número secreto é MENOR que {chute}!')
         elif menor:
-            print('Você errou! Seu chute foi MENOR que o número secreto!')
+            print(f'Você errou! O número secreto é MAIOR que {chute}!')
 
 print('')
 print('-------------')
 print('Fim de jogo')
-print(f'O número era {numero_secreto}')
+print(f'O número secreto era {numero_secreto}')
 print('-------------')
