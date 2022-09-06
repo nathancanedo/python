@@ -8,19 +8,27 @@ print('')
 dificuldade = input('Selecione a dificuldade: \n Fácil (1) Médio (2) Difícil (3) \n')
 print('')
 
-total_de_tentativas = int()
+nome_dificuldade = ''
+total_de_tentativas = ''
 
 if dificuldade == '1':
     total_de_tentativas = 10
+    nome_dificuldade = 'Fácil'
 elif dificuldade == '2':
     total_de_tentativas = 5
+    nome_dificuldade = 'Médio'
 elif dificuldade == '3':
     total_de_tentativas = 3
+    nome_dificuldade = 'Difícil'
 else:
     print('[ERRO] Você não digitou uma dificuldade válida!')
     exit()
 
+erros = total_de_tentativas
 numero_secreto = int(random.random()*101)
+
+print('O jogo começou! 🏁')
+print(f'Você está jogando no modo {nome_dificuldade.upper()}')
 
 for rodada in range(1, total_de_tentativas + 1):
     print('')
@@ -45,10 +53,17 @@ for rodada in range(1, total_de_tentativas + 1):
 
         break
     else:
+        erros -= 1
         if maior:
             print(f'Você errou! O número secreto é MENOR que {chute}!')
         elif menor:
             print(f'Você errou! O número secreto é MAIOR que {chute}!')
+
+if erros == 0:
+    print('')
+    print('❌❌❌❌❌')
+    print('Você perdeu!')
+    print('❌❌❌❌❌')
 
 print('')
 print('-------------')
